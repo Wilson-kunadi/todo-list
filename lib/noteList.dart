@@ -2,7 +2,7 @@ class note {
   int _id, _priority;
   String _title, _description, _date;
 
-  note(this._title, this._priority, this._date, this._description);
+  note(this._title, this._priority, this._date, [this._description]);
   note.withID(
       this._id, this._title, this._priority, this._date, this._description);
 
@@ -28,7 +28,6 @@ class note {
       : null;
 
   // used to save and retrieve from db
-
   // convert note object to map object
   Map<String, dynamic> toMap() {
     var map = Map<String, dynamic>();
