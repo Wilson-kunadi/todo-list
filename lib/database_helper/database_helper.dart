@@ -4,6 +4,7 @@ import 'dart:async'; // for async
 import 'dart:io'; //writting things into file
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
+import 'package:todo_list/screens/note_screens.dart';
 
 class databaseHelper {
   static databaseHelper _databaseHelper; //Singleton
@@ -90,6 +91,14 @@ class databaseHelper {
   }
 
   Future<List<note>> getNoteList() async {
-    var noteMapList = await getNoteList();
+    var noteMapList = await getNoteMapList();
+    int count = noteMapList.length;
+
+    List<note> noteList = List<note>();
+
+    for (var i = 0; i < count; i++) {
+      noteList.add(note.fromMapObject(noteMapList[i]));
+    }
+    // return noteMapList;
   }
 }
